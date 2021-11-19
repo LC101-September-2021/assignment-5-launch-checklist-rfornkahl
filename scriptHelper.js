@@ -1,7 +1,7 @@
 // Write your helper functions here!
 
 
-require('isomorphic-fetch');
+//require('isomorphic-fetch');
 
 window.addEventListener("load", function(){
     console.log("window loaded");
@@ -13,7 +13,13 @@ const coPilot = document.getElementsByName("copilotName");
 const fuel = document.getElementsByName("fuelLevel");
 const cargo = document.getElementsByName("cargoMass");
 
+const pilotValue = pilot.value;
+    const coPilotValue = coPilot.value;
+    const fuelValue = fuel.value;
+    const cargoValue = cargo.value;
 
+    const nonLetters = new RegExp (/[~`!@#$%\^()_&*+=\-\[\]\\';,/{}|\\":<>\?0-9]/);
+    const nonNumbers = new RegExp (/[~`!@#$%\^()_&*+=\-\[\]\\';,/{}|\\":<>\?a-zA-Z]/);
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
@@ -30,15 +36,9 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 }
 
-form.addEventListener('submit', (e) =>{
-    e.preventDefault();
-    const pilotValue = pilot.value;
-    const coPilotValue = coPilot.value;
-    const fuelValue = fuel.value;
-    const cargoValue = cargo.value;
-
-    const nonLetters = new RegExp (/[~`!@#$%\^()_&*+=\-\[\]\\';,/{}|\\":<>\?0-9]/);
-    const nonNumbers = new RegExp (/[~`!@#$%\^()_&*+=\-\[\]\\';,/{}|\\":<>\?a-zA-Z]/);
+form.addEventListener('submit', function(event) {
+    
+  
 
     if (pilotValue === "" || coPilotValue === "" || fuelValue === "" || cargoValue === ""){
         alert("All fields are required!");
@@ -47,11 +47,21 @@ form.addEventListener('submit', (e) =>{
     } if (nonNumbers.test(fuelValue) || nonNumbers.test(cargoValue)){
         alert("Make sure to enter valid information for each field!");
     }
+
+    event.preventDefault();
 });
 
 function validateInput(testInput) {
-    
+    testInput = form.value;
 
+    if (testInput === ""){
+        inputValue = ("Empty")
+    }; if (isNaN(testInput)){
+    inputValue = console.log("Is a Number")
+    }; if (!isNaN(testInput)){
+    inputValue = console.log("Not a Number")
+    };
+return inputValue;
 }
 
 
