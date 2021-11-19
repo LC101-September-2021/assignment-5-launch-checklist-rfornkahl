@@ -1,5 +1,19 @@
 // Write your helper functions here!
-require('isomorphic-fetch');
+
+
+//require('isomorphic-fetch');
+
+window.addEventListener("load", function(){
+    console.log("window loaded");
+
+
+const form = document.getElementById("launchForm");
+const pilot = document.getElementById("pilotName");
+const coPilot = document.getElementsByName("copilotName");
+const fuel = document.getElementsByName("fuelLevel");
+const cargo = document.getElementsByName("cargoMass");
+
+
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
@@ -16,9 +30,30 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 }
 
+form.addEventListener('submit', (e) =>{
+    e.preventDefault();
+    const pilotValue = pilot.value;
+    const coPilotValue = coPilot.value;
+    const fuelValue = fuel.value;
+    const cargoValue = cargo.value;
+
+    const nonLetters = new RegExp (/[~`!@#$%\^()_&*+=\-\[\]\\';,/{}|\\":<>\?0-9]/);
+    const nonNumbers = new RegExp (/[~`!@#$%\^()_&*+=\-\[\]\\';,/{}|\\":<>\?a-zA-Z]/);
+
+    if (pilotValue === "" || coPilotValue === "" || fuelValue === "" || cargoValue === ""){
+        alert("All fields are required!");
+    } if (nonLetters.test(pilotValue) || nonLetters.test(pilotValue)){
+        alert("Make sure to enter valid information for each field!");
+    } if (nonNumbers.test(fuelValue) || nonNumbers.test(cargoValue)){
+        alert("Make sure to enter valid information for each field!");
+    }
+});
+
 function validateInput(testInput) {
-   
+    
+
 }
+
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    
@@ -41,3 +76,4 @@ module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
 module.exports.pickPlanet = pickPlanet; 
 module.exports.myFetch = myFetch;
+});
