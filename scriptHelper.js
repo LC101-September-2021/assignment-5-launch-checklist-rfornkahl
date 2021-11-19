@@ -1,7 +1,7 @@
 // Write your helper functions here!
 
 
-//require('isomorphic-fetch');
+require('isomorphic-fetch');
 
 window.addEventListener("load", function(){
     console.log("window loaded");
