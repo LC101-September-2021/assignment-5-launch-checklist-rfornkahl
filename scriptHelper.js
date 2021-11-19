@@ -1,8 +1,8 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
 
-window.addEventListener("load", function(){
-    console.log("window loaded");
+//window.addEventListener("load", function(){
+    //console.log("window loaded");
 
 
 const form = document.getElementById("launchForm");
@@ -84,4 +84,4 @@ module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
 module.exports.pickPlanet = pickPlanet; 
 module.exports.myFetch = myFetch;
-});
+//});
