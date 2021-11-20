@@ -1,23 +1,31 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
 
-//window.addEventListener("load", function(){
-    //console.log("window loaded");
+window.addEventListener("load", function(){
+    console.log("window loaded");
 
 
-const form = document.getElementById("launchForm");
-const pilot = document.getElementById("pilotName");
-const coPilot = document.getElementsByName("copilotName");
-const fuel = document.getElementsByName("fuelLevel");
-const cargo = document.getElementsByName("cargoMass");
+const form = document.querySelector("form");
 
-const pilotValue = pilot.value;
-    const coPilotValue = coPilot.value;
-    const fuelValue = fuel.value;
-    const cargoValue = cargo.value;
+form.addEventListener('submit', function(event) {
+const pilot = document.querySelector("input[name=pilotName]");
+const coPilot = document.querySelector("input[name=copilotName]");
+const fuel = document.querySelector("input[name=fuelLevel]");
+const cargo = document.querySelector("input[name=cargoMass]");
 
-    const nonLetters = new RegExp (/[~`!@#$%\^()_&*+=\-\[\]\\';,/{}|\\":<>\?0-9]/);
-    const nonNumbers = new RegExp (/[~`!@#$%\^()_&*+=\-\[\]\\';,/{}|\\":<>\?a-zA-Z]/);
+
+
+    if ((pilot.value === "") || (coPilot.value === "") || (fuel.value === "") || (cargo.value === "")){
+        alert("All fields are required!");
+        event.preventDefault();
+    } else if ((isNaN(pilot.value) === false) || (isNaN(coPilot.value) === false)){
+        alert("Make sure to enter valid information for each field!");
+        event.preventDefault();
+    } else if ((isNaN(fuel.value) === true) || (isNaN(cargo.value) === true)) {
+        alert("Make sure to enter valid information for each field!");
+        event.preventDefault();
+    }
+});
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
@@ -34,34 +42,23 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 }
 
-form.addEventListener('submit', function(event) {
-    
+  
   
 
-    if (pilotValue === "" || coPilotValue === "" || fuelValue === "" || cargoValue === ""){
-        alert("All fields are required!");
-    } if (nonLetters.test(pilotValue) || nonLetters.test(pilotValue)){
-        alert("Make sure to enter valid information for each field!");
-    } if (nonNumbers.test(fuelValue) || nonNumbers.test(cargoValue)){
-        alert("Make sure to enter valid information for each field!");
-    }
-
-    event.preventDefault();
-});
+    
 
 function validateInput(testInput) {
-    testInput = form.value;
 
     if (testInput === ""){
-        inputValue = ("Empty")
-    }; if (isNaN(testInput)){
-    inputValue = console.log("Is a Number")
-    }; if (!isNaN(testInput)){
-    inputValue = console.log("Not a Number")
+        testInput = ("Empty");
+    } else if (isNaN(testInput)){
+        testInput = ("Not a Number");
+    } else if (!isNaN(testInput)){
+        testInput = ("Is a Number");
     };
-return inputValue;
-}
 
+    return testInput;
+};
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    
@@ -84,4 +81,4 @@ module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
 module.exports.pickPlanet = pickPlanet; 
 module.exports.myFetch = myFetch;
-//});
+});
