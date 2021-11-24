@@ -1,5 +1,5 @@
 // Write your helper functions here!
-//require('isomorphic-fetch');
+require('isomorphic-fetch');
 
 if (typeof window !== "undefined"){
 window.addEventListener("load", function(){
