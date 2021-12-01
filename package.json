@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "grading.js",
+  
   "scripts": {
     "test": "jasmine",
     "test-grading-dom": "jasmine spec/grading-dom.spec.js",
@@ -21,4 +22,5 @@
   "dependencies": {
     "jsdom": "^16.4.0"
   }
+  
 }
