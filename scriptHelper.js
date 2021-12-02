@@ -1,6 +1,6 @@
 // Write your helper functions here!
 
-//require('isomorphic-fetch');
+require('isomorphic-fetch');
 
 if (typeof window !== "undefined"){
 window.addEventListener("load", function(){
@@ -96,7 +96,7 @@ async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
-        response.json();
+        response.json()
 });
 
     return planetsReturned;
@@ -114,7 +114,13 @@ function pickPlanet(planets) {
     return planets;
 }
 
-//window.addEventListener("load", function() {
+
+/*Entered the code for script.js in scriptHelper.js, browser keeps erroring out on the messages: 
+Uncaught ReferenceError: require is not defined. script.js
+Uncaught ReferenceError: module is not defined. ScriptHelper.js
+if the section below is uncommited and the script.js is commited application works properly. unable to figure out why 
+require and module are not read properly. have switched ES6 with export and import, code still errors out except the error
+message received is that unexpected token of export and import cannot be used outside of module.
 
    formSubmission(document);
 
@@ -128,32 +134,38 @@ function pickPlanet(planets) {
        console.log(listedPlanets);
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
       let pickedPlanet = pickPlanet(listedPlanets);
+
       function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl){
+         this.fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
+      response.json().then(function(json) {
          const div = document.getElementById("missionTarget");
          div.innerHTML = `
          <h2>Mission Destination</h2>
          <ol>
-            <li>Name: ${JSON[pickedPlanet].name}</li>
-            <li>Diameter: ${JSON[pickedPlanet].diameter}</li>
-            <li>Star: ${JSON[pickedPlanet].star}</li>
-            <li>Distance from Earth: ${JSON[pickedPlanet].distance}</li>
-            <li>Number of Moons: ${JSON[pickedPlanet].moons}</li>
+            <li>Name: ${json[pickedPlanet].name}</li>
+            <li>Diameter: ${json[pickedPlanet].diameter}</li>
+            <li>Star: ${json[pickedPlanet].star}</li>
+            <li>Distance from Earth: ${json[pickedPlanet].distance}</li>
+            <li>Number of Moons: ${json[pickedPlanet].moons}</li>
          </ol>
-         <img src="${JSON[pickedPlanet].image}">
-         `;
-       };
+         <img src="${json[pickedPlanet].image}">
+         `; 
+      });
+   });
+      };
        addDestinationInfo(document);
       })
-  
-//});
+      
+  */
 
 
-/*
+
+
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
 module.exports.pickPlanet = pickPlanet; 
 module.exports.myFetch = myFetch;
-*/
+
 });
 }
