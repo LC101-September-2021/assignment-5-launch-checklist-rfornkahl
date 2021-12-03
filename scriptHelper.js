@@ -1,11 +1,10 @@
 // Write your helper functions here!
 
-require('isomorphic-fetch');
+//require('isomorphic-fetch');
 
 
     function addDestinationInfo(document, name, diameter, star, distance, moons, image) {
-     const div = document.getElementById("missionTarget");
-      div.innerHTML = 
+     document.getElementById("missionTarget").innerHTML = 
         `
          <h2>Mission Destination</h2>
          <ol>
@@ -17,8 +16,6 @@ require('isomorphic-fetch');
       </ol>
       <img src="${image}">
          `; 
-   //});
-//});
     };
    
     
