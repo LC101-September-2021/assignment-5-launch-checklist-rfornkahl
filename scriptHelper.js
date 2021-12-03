@@ -3,12 +3,10 @@
 //require('isomorphic-fetch');
 
 
-
-
-
     function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
       const div = document.getElementById("missionTarget");
-         div.innerHTML = `
+        div.innerHTML = 
+        `
          <h2>Mission Destination</h2>
          <ol>
             <li>Name: ${json[pickedPlanet].name}</li>
@@ -21,9 +19,6 @@
          `; 
    }
    
-
-
-
     
 
 function validateInput(testInput) {
@@ -41,7 +36,7 @@ let newValue = testInput;
     return newValue;
 };
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+function formSubmission(document, list, pilot, copilot, fuel, cargo) {
        
 
       if (validateInput(pilot.value) === "Empty" || validateInput(copilot.value) === "Empty" ||validateInput(fuel.value) === "Empty" || validateInput(cargo.value) === "Empty" ) {
@@ -86,7 +81,7 @@ async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
-        response.json()
+       return response.json()
 });
 
     return planetsReturned;
@@ -95,20 +90,15 @@ async function myFetch() {
 
 
 function pickPlanet(planets) {
-    function getRandomInt(min, max){
-        min = Math.ceil(0);
-        max = Math.floor(6);
+    function getRandomInt(){
+        const min = Math.ceil(0);
+       const max = Math.floor(6);
         return Math.floor(Math.random()* (max-min) + min);
     }
-    planets = getRandomInt();
     return planets;
 }
 
 
-module.exports.addDestinationInfo = addDestinationInfo;
-module.exports.validateInput = validateInput;
-module.exports.formSubmission = formSubmission;
-module.exports.pickPlanet = pickPlanet; 
-module.exports.myFetch = myFetch;
+
 
 
