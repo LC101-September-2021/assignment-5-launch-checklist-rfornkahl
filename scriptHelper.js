@@ -1,6 +1,6 @@
 // Write your helper functions here!
 
-//require('isomorphic-fetch');
+require('isomorphic-fetch');
 
 
     function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
@@ -95,6 +95,7 @@ function pickPlanet(planets) {
        const max = Math.floor(6);
         return Math.floor(Math.random()* (max-min) + min);
     }
+    planets = getRandomInt();
     return planets;
 }
 
