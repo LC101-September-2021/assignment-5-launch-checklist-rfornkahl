@@ -8,11 +8,11 @@ window.addEventListener("load", function() {
     
     form.addEventListener("submit", function(event) {
         event.preventDefault();
-      let pilot = document.querySelector("input[name=pilotName]");
-      let copilot = document.querySelector("input[name=copilotName]");
-      let fuel = document.querySelector("input[name=fuelLevel]");
-      let cargo = document.querySelector("input[name=cargoMass]");
-      let list = document.getElementById("faultyItems");
+      const pilot = document.querySelector("input[name=pilotName]");
+      const copilot = document.querySelector("input[name=copilotName]");
+      const fuel = document.querySelector("input[name=fuelLevel]");
+      const cargo = document.querySelector("input[name=cargoMass]");
+      const list = document.getElementById("faultyItems");
       
 
     formSubmission(document,list,pilot,copilot,fuel,cargo);
@@ -29,8 +29,7 @@ let listedPlanets;
         console.log(listedPlanets);
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
        const pickedPlanet = pickPlanet(listedPlanets);
-        addDestinationInfo(document);
-
-        //document, name, diameter, star, distance, moons, imageUrl
+        addDestinationInfo(document, pickedPlanet);
+        
        })
 });
