@@ -1,27 +1,24 @@
 // Write your helper functions here!
 
-require('isomorphic-fetch');
+//require('isomorphic-fetch');
 
 
-    function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-      this.fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
-         response.json().then(function(json) {
-            const div = document.getElementById("missionTarget");
-            const pickedPlanet = pickPlanet();
-        div.innerHTML = 
+    function addDestinationInfo(document, name, diameter, star, distance, moons, image) {
+     const div = document.getElementById("missionTarget");
+      div.innerHTML = 
         `
          <h2>Mission Destination</h2>
          <ol>
-         <li>Name: ${json[pickedPlanet].name}</li>
-         <li>Diameter: ${json[pickedPlanet].diameter}</li>
-         <li>Star: ${json[pickedPlanet].star}</li>
-         <li>Distance from Earth: ${json[pickedPlanet].distance}</li>
-         <li>Number of Moons: ${json[pickedPlanet].moons}</li>
+         <li>Name: ${name}</li>
+         <li>Diameter: ${diameter}</li>
+         <li>Star: ${star}</li>
+         <li>Distance from Earth: ${distance}</li>
+         <li>Number of Moons: ${moons}</li>
       </ol>
-      <img src="${json[pickedPlanet].image}">
+      <img src="${image}">
          `; 
-   });
-});
+   //});
+//});
     };
    
     

@@ -28,8 +28,9 @@ let listedPlanets;
     }).then(function () {
         console.log(listedPlanets);
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-       const pickedPlanet = pickPlanet(listedPlanets);
-        addDestinationInfo(document, pickedPlanet);
+       const pickedPlanet = listedPlanets[pickPlanet()];
+       //const div = document.getElementById("missionTarget");
+      addDestinationInfo(document, pickedPlanet.name, pickedPlanet.diameter, pickedPlanet.star, pickedPlanet.distance, pickedPlanet.moon, pickedPlanet.image);
         
        })
 });
