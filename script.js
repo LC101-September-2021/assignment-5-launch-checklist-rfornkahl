@@ -1,7 +1,7 @@
 // Write your JavaScript code here!
 
 
-
+import fetch from "node-fetch";
 
 window.addEventListener("load", function() {
     const form = document.querySelector("form");
