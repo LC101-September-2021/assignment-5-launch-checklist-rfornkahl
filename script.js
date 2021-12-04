@@ -27,7 +27,7 @@ let listedPlanets;
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
        const pickedPlanet = listedPlanets[pickPlanet()];
 
-       addDestinationInfo(document, pickedPlanet.name, pickedPlanet.diameter, pickedPlanet.star, pickedPlanet.distance, pickedPlanet.moon, pickedPlanet.image);
-        
+      
+      addDestinationInfo(document, pickedPlanet.name, pickedPlanet.diameter, pickedPlanet.star, pickedPlanet.distance, pickedPlanet.moon, pickedPlanet.image);
        })
 });

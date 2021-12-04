@@ -4,7 +4,7 @@
 
 
     function addDestinationInfo(document, name, diameter, star, distance, moons, image) {
-     document.getElementById("missionTarget").innerHTML = 
+    document.getElementById("missionTarget").innerHTML = 
         `
          <h2>Mission Destination</h2>
          <ol>
